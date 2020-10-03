@@ -1,0 +1,79 @@
+<!DOCTYPE html> 
+<html> 
+	
+<head>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jstimezonedetect/1.0.7/jstz.js"></script>
+	<title> 
+		How to get the client timezone 
+		offset in JavaScript? 
+	</title> 
+</head> 
+
+<body> 
+	<h1 style="color: green"> 
+		GeeksForGeeks 
+	</h1> 
+ <script type = "text/javascript">
+         var dt = new Date();
+         var tz = dt.getTimezoneOffset(); 
+         document.write("getTimezoneOffset() : " + tz ); 
+      </script>
+	
+	
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var d = new Date();
+  var n = d.getTimezoneOffset();
+  document.getElementById("demo").innerHTML = n;
+}
+myFunction();
+</script>	
+	
+	
+	
+	<p id="demo1"></p>
+
+		<script type="text/javascript"> 
+
+	function getTimezoneOffset() {
+  function z(n){return (n<10? '0' : '') + n}
+  var offset = new Date().getTimezoneOffset();
+  var sign = offset < 0? '+' : '-';
+  offset = Math.abs(offset);
+  return sign + z(offset/60 | 0) + z(offset%60);
+}
+
+//getTimezoneOffset(); // +0800 for UTC/GMT + 8hrs
+document.getElementById("demo1").innerHTML = getTimezoneOffset();;
+</script> 
+	<b> 
+		How to get the client timezone 
+		offset in JavaScript? 
+	</b> 
+	
+	<p> 
+		Click on the button to get 
+		the timezone offset 
+	</p> 
+	
+	<p>Output: <span class="output"></span></p> 
+	
+	<button onclick="getTimezone()"> 
+		Get timezone 
+	</button> 
+	
+	<!-- Script to get the client timezone -->
+	<script type="text/javascript"> 
+		function getTimezone() { 
+			offset = new Date().getTimezoneOffset(); 
+			formatted = -(offset / 60); 
+			document.querySelector('.output').textContent 
+					= formatted; 
+		} 
+	</script> 
+</body> 
+
+</html>					 
